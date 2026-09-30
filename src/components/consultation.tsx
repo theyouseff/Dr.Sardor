@@ -87,20 +87,14 @@ export function ConsultationProvider({ children }: { children: ReactNode }) {
                 <DialogTitle>Konsultatsiyaga yozilish</DialogTitle>
                 <DialogDescription>Bir necha savolga javob bering — biz siz bilan bog'lanamiz.</DialogDescription>
               </div>
-              <Q label="Ismingiz">
-                <input name="name" required autoComplete="name" placeholder="Ism" className={fieldCls} />
+              <Q label={`1. ${formQuestions.regionLabel}`}>
+                <Choice name="region" options={formQuestions.regions} />
               </Q>
-              <Q label="Telefon raqamingiz">
-                <input name="phone" required type="tel" inputMode="tel" autoComplete="tel" placeholder="+998 __ ___ __ __" className={fieldCls} />
+              <Q label={`2. ${formQuestions.nameLabel}`}>
+                <input name="name" required autoComplete="name" placeholder="Ismingizni kiriting" className={fieldCls} />
               </Q>
-              <Q label="Sizni nima bezovta qilyapti?">
-                <Choice name="problem" options={formQuestions.problems} />
-              </Q>
-              <Q label="Qaysi xizmat qiziqtiradi?">
-                <Choice name="interest" options={formQuestions.interests} />
-              </Q>
-              <Q label="Qulay vaqt">
-                <Choice name="time" options={formQuestions.times} />
+              <Q label={`3. ${formQuestions.phoneLabel}`}>
+                <input name="phone" required type="tel" inputMode="tel" autoComplete="tel" placeholder="+998 90 123 45 67" className={fieldCls} />
               </Q>
               {status === "error" && (
                 <p className={cn("rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700")}>

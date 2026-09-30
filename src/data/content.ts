@@ -131,15 +131,10 @@ export const faqs = [
   { q: "Konsultatsiya pullikmi?", a: "Dastlabki konsultatsiya bo'yicha tafsilotni ro'yxatdan o'tganingizda aytamiz." }, // TODO: bepul/pullikligini aniqlang
 ]
 
-// TODO: drubaydulloh.com dagi forma savollari bilan almashtiring (sayt tarmoqdan ochilmadi)
+// drubaydulloh.com dagi forma savollari (landing-ubaydulloh repozitoriysidan olingan)
 export const formQuestions = {
-  problems: [
-    "Bitta yoki bir nechta tishim yo'q",
-    "Tishlarim deyarli yo'q / to'liq tishsiz jag",
-    "Protezim qulay emas",
-    "Tishlarim qimirlayapti yoki tushayapti",
-    "Bilmayman, maslahat kerak",
-  ],
-  interests: ["Yakka implant", "All-on-4", "All-on-6", "Koronka / protez", "Hali bilmayman"],
-  times: ["Ertalab (09–12)", "Kunduzi (12–16)", "Kechqurun (16–19)"],
+  regionLabel: "Hozir qayerda istiqomat qilasiz?",
+  regions: ["Toshkent shahri", "Toshkent viloyati", "Boshqa viloyat"],
+  nameLabel: "Ismingiz?",
+  phoneLabel: "Telefon raqamingiz?",
 }
