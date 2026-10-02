@@ -3,6 +3,7 @@ import { CalendarCheck, Phone, ShieldCheck } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { useConsultation } from "@/components/consultation"
+import { CountUp } from "@/components/count-up"
 import { doctor, expert } from "@/data/content"
 
 export function Header() {
@@ -90,7 +91,8 @@ export function Expert() {
             {expert.stats.map((s) => (
               <div key={s.label} className={cn("rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4", s.wide && "col-span-2")}>
                 <p className="whitespace-nowrap font-display text-3xl font-extrabold tabular-nums sm:text-4xl">
-                  {s.value}
+                  <CountUp to={s.to} />
+                  {s.suffix}
                   <span className="text-[#4da3ee]">{s.unit}</span>
                 </p>
                 <p className="mt-1 text-sm text-white/65">{s.label}</p>
