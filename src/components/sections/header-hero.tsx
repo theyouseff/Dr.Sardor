@@ -75,18 +75,13 @@ export function Hero() {
 export function Expert() {
   return (
     <section id="mutaxassis" className="relative overflow-hidden bg-[#0a1424] text-white">
-      {/* Klinika xonasi: chap chetdan boshlanib, o'ngda ko'k fonga singib ketadi */}
-      <div className="relative md:absolute md:inset-y-0 md:left-0 md:w-1/2 md:max-w-[760px]">
-        <img
-          src="/expert.jpg"
-          alt={doctor.name}
-          className="block aspect-[546/578] w-full object-cover object-[50%_20%] md:aspect-auto md:h-full"
-        />
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,#0a1424_0%,transparent_14%,transparent_70%,#0a1424_100%)] md:bg-[linear-gradient(to_right,transparent_48%,#0a1424_100%),linear-gradient(to_bottom,#0a1424_0%,transparent_14%,transparent_86%,#0a1424_100%)]" />
-      </div>
-      <div className="container relative grid gap-10 pb-16 md:grid-cols-[0.85fr_1.15fr] md:gap-16 md:py-24">
-        <div className="hidden md:block" aria-hidden />
-        <div className="-mt-14 md:mt-0">
+      <div className="container grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:gap-14">
+        {/* Doktor o'z kabinetida; rasm faqat chap ustunda, pastki chetga tayangan */}
+        <div className="relative mx-auto w-full max-w-[540px] self-end pt-10 md:pt-16">
+          <img src="/expert-room.webp" alt={doctor.name} width={900} height={1200} className="block w-full" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#0a1424] to-transparent md:hidden" />
+        </div>
+        <div className="relative -mt-16 self-center pb-16 md:mt-0 md:py-24">
           <p className="text-sm font-semibold uppercase tracking-widest text-[#4da3ee]">Mutaxassis haqida</p>
           <h2 className="mt-3 text-3xl font-extrabold sm:text-5xl">{doctor.name}</h2>
           <p className="mt-2 text-lg font-semibold text-[#4da3ee]">{expert.eyebrow}</p>
