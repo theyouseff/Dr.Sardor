@@ -32,7 +32,7 @@ export const expert = {
   sub: "Har bir bosqichni shaxsan o'zi olib boradi",
   stats: [
     { value: "16", unit: " yil", label: "stomatologiyada tajriba" },
-    { value: "10 000+", unit: "", label: "10 yil ichidagi mamnun bemorlar" },
+    { value: "10\u00A0000+", unit: "", label: "10 yil ichidagi mamnun bemorlar" },
     { value: "400+", unit: "", label: "o'rnatilgan implantlar" },
     { value: "600+", unit: "", label: "o'rnatilgan koronkalar" },
     { value: "125+", unit: "", label: "Implant va koronka o'rnatilgan bemorlar soni", wide: true },
