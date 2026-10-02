@@ -74,24 +74,27 @@ export function Hero() {
 
 export function Expert() {
   return (
-    <section id="mutaxassis" className="bg-muted/60 py-20 sm:py-28">
-      <div className="container grid items-center gap-12 md:grid-cols-[0.8fr_1.2fr] md:gap-16">
-        <div className="relative mx-auto aspect-[546/578] w-full max-w-md overflow-hidden rounded-[2rem] shadow-[0_28px_60px_-24px_hsl(215_70%_20%/0.55)]">
-          <img src="/expert.jpg" alt={doctor.name} className="h-full w-full object-cover" />
+    <section id="mutaxassis" className="relative overflow-hidden bg-[#0a1424] py-20 text-white sm:py-28">
+      <div className="pointer-events-none absolute -left-48 top-1/2 h-[560px] w-[560px] -translate-y-1/2 rounded-full bg-primary/25 blur-3xl" />
+      <div className="container relative grid items-center gap-12 md:grid-cols-[0.85fr_1.15fr] md:gap-16">
+        <div className="relative mx-auto w-full max-w-md rounded-[2rem] border border-white/15 bg-white/5 p-2.5 shadow-[0_0_90px_-24px_hsl(205_90%_52%/0.6)]">
+          <div className="aspect-[546/578] overflow-hidden rounded-[1.5rem]">
+            <img src="/expert.jpg" alt={doctor.name} className="h-full w-full object-cover object-[50%_100%]" />
+          </div>
         </div>
         <div>
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary">Mutaxassis haqida</p>
-          <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">{doctor.name}</h2>
-          <p className="mt-2 font-semibold text-primary">{expert.eyebrow}</p>
-          <p className="mt-2 text-muted-foreground">{expert.sub}</p>
+          <p className="text-sm font-semibold uppercase tracking-widest text-[#4da3ee]">Mutaxassis haqida</p>
+          <h2 className="mt-3 text-3xl font-extrabold sm:text-5xl">{doctor.name}</h2>
+          <p className="mt-2 text-lg font-semibold text-[#4da3ee]">{expert.eyebrow}</p>
+          <p className="mt-2 text-white/70">{expert.sub}</p>
           <div className="mt-8 grid grid-cols-2 gap-3">
             {expert.stats.map((s) => (
-              <div key={s.label} className={cn("rounded-2xl border border-border bg-background p-5", s.wide && "col-span-2")}>
+              <div key={s.label} className={cn("rounded-2xl border border-white/10 bg-white/[0.04] p-5", s.wide && "col-span-2")}>
                 <p className="font-display text-3xl font-extrabold tabular-nums sm:text-4xl">
                   {s.value}
-                  <span className="text-primary">{s.unit}</span>
+                  <span className="text-[#4da3ee]">{s.unit}</span>
                 </p>
-                <p className="mt-1 text-sm text-muted-foreground">{s.label}</p>
+                <p className="mt-1 text-sm text-white/65">{s.label}</p>
               </div>
             ))}
           </div>
