@@ -75,20 +75,20 @@ export function Hero() {
 export function Expert() {
   return (
     <section id="mutaxassis" className="relative overflow-hidden bg-[#0a1424] text-white">
-      <div className="container grid gap-8 md:grid-cols-[1.15fr_1fr] md:gap-6">
+      <div className="container grid gap-8 md:grid-cols-[1fr_1.1fr] md:gap-6">
         {/* Doktor o'z kabinetida; rasm faqat chap ustunda, pastki chetga tayangan */}
         <div className="relative mx-auto w-full max-w-[480px] self-end pt-6 md:-ml-[14%] md:w-[118%] md:max-w-none md:pt-4">
-          <img src="/expert-room.webp" alt={doctor.name} width={1000} height={1250} className="block w-full" />
+          <img src="/expert-room.webp" alt={doctor.name} width={1100} height={1050} className="block w-full" />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#0a1424] to-transparent md:hidden" />
         </div>
-        <div className="relative -mt-16 self-center pb-16 md:mt-0 md:py-16 md:pr-12">
+        <div className="relative -mt-16 self-center pb-16 md:mt-0 md:py-12 md:pr-12">
           <p className="text-sm font-semibold uppercase tracking-widest text-[#4da3ee]">Mutaxassis haqida</p>
-          <h2 className="mt-3 text-3xl font-extrabold sm:text-5xl">{doctor.name}</h2>
-          <p className="mt-2 text-lg font-semibold text-[#4da3ee]">{expert.eyebrow}</p>
-          <p className="mt-2 text-white/70">{expert.sub}</p>
-          <div className="mt-8 grid grid-cols-2 gap-3">
+          <h2 className="mt-2 text-3xl font-extrabold sm:text-5xl">{doctor.name}</h2>
+          <p className="mt-1 text-lg font-semibold text-[#4da3ee]">{expert.eyebrow}</p>
+          <p className="mt-1 text-white/70">{expert.sub}</p>
+          <div className="mt-6 grid grid-cols-2 gap-3">
             {expert.stats.map((s) => (
-              <div key={s.label} className={cn("rounded-2xl border border-white/10 bg-white/[0.04] p-5", s.wide && "col-span-2")}>
+              <div key={s.label} className={cn("rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4", s.wide && "col-span-2")}>
                 <p className="whitespace-nowrap font-display text-3xl font-extrabold tabular-nums sm:text-4xl">
                   {s.value}
                   <span className="text-[#4da3ee]">{s.unit}</span>
