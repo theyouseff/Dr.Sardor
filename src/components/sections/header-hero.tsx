@@ -76,8 +76,8 @@ export function Expert() {
   return (
     <section id="mutaxassis" className="bg-muted/60 py-20 sm:py-28">
       <div className="container grid items-center gap-12 md:grid-cols-[0.8fr_1.2fr] md:gap-16">
-        <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-[2rem] border border-border bg-gradient-to-b from-sky-soft to-white">
-          <img src="/doctor.webp" alt={doctor.name} className="absolute left-1/2 top-[4%] h-[125%] max-w-none -translate-x-1/2" />
+        <div className="relative mx-auto aspect-[546/578] w-full max-w-md overflow-hidden rounded-[2rem] shadow-[0_28px_60px_-24px_hsl(215_70%_20%/0.55)]">
+          <img src="/expert.jpg" alt={doctor.name} className="h-full w-full object-cover" />
         </div>
         <div>
           <p className="text-sm font-semibold uppercase tracking-widest text-primary">Mutaxassis haqida</p>
