@@ -6,7 +6,8 @@ const avatar = (id: string) =>
 
 export const doctor = {
   name: "Dr. Sardor", // TODO: to'liq ism-familiya
-  title: "Implantolog-jarroh",
+  title: "Implantolog, ortoped-stomatolog",
+  years: "16",
   phone: "+998 90 000 00 00", // TODO
   phoneHref: "tel:+998900000000", // TODO
   telegram: "https://t.me/", // TODO
@@ -15,27 +16,28 @@ export const doctor = {
   hours: "Du–Sha: 09:00 – 19:00", // TODO
 }
 
-export const stats = [
-  { value: "10+", label: "yil tajriba" }, // TODO
-  { value: "3000+", label: "o'rnatilgan implant" }, // TODO
-  { value: "98%", label: "muvaffaqiyatli bitish" }, // TODO
-  { value: "1 kun", label: "All-on-4 / 6 da tishlar" },
+// "Bu kim uchun" bloki: bemor "ha, menda shu muammo bor" deb belgilaydi
+export const painPoints = [
+  { title: "Tishlarim deyarli qolmagan", text: "Yoki hammasini olib tashlashgan, yeyish va gapirish qiyin." },
+  { title: "Olinadigan protez taqib yurganman", text: "U tushib ketadi, ishqalaydi yoki og'riq beradi." },
+  { title: "Tishlarim qimirlayapti yoki chirigan", text: "Ildizi yaroqsiz, ularni saqlab qolishning iloji yo'q." },
+  { title: "Chaynay olmayman", text: "Qattiq ovqatdan voz kechganman, ovqatdan zavq olmayman." },
+  { title: "Tabassum qilishdan uyalaman", text: "Odamlar oldida kulmayman, suratga tushishni yoqtirmayman." },
+  { title: "Menga \"suyak yetishmaydi\" deyishgan", text: "Implant qo'yib bo'lmaydi degan javob olganman." },
 ]
 
-export const services = [
-  {
-    title: "Bitta tish implanti",
-    text: "Yo'qolgan bitta tishni qo'shni tishlarga tegmasdan, tabiiy ko'rinishda tiklash.",
-  },
-  {
-    title: "Bir nechta tish",
-    text: "Ketma-ket yo'qolgan tishlar uchun mustahkam ko'prik — kam implant bilan, yuqori bardosh bilan.",
-  },
-  {
-    title: "To'liq jag tiklash",
-    text: "Tishsiz jag uchun All-on-4 va All-on-6 — operatsiya kuniyoq vaqtinchalik tishlar bilan.",
-  },
-]
+// "Ekspert haqida" bloki
+export const expert = {
+  eyebrow: "Implantolog / Ortoped-stomatolog",
+  sub: "Har bir bosqichni shaxsan o'zi olib boradi",
+  stats: [
+    { value: "16", unit: " yil", label: "stomatologiyada tajriba" },
+    { value: "10 000+", unit: "", label: "10 yil ichidagi mamnun bemorlar" },
+    { value: "400+", unit: "", label: "o'rnatilgan implantlar" },
+    { value: "600+", unit: "", label: "o'rnatilgan koronkalar" },
+    { value: "125+", unit: "", label: "Implant va koronka o'rnatilgan bemorlar soni", wide: true },
+  ],
+}
 
 export const allOn = {
   four: {

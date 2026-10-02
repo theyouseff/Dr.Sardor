@@ -6,7 +6,11 @@ import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/compone
 import { formQuestions } from "@/data/content"
 import { cn } from "@/lib/utils"
 
-const Ctx = createContext<{ open: () => void }>({ open: () => {} })
+const Ctx = createContext<{ open: () => void; problems: string[]; setProblems: (p: string[]) => void }>({
+  open: () => {},
+  problems: [],
+  setProblems: () => {},
+})
 export const useConsultation = () => useContext(Ctx)
 
 // Yuborish manzili: .env ichida VITE_FORM_ENDPOINT (masalan Formspree / Google Apps Script)
@@ -41,6 +45,7 @@ function Q({ label, children }: { label: string; children: ReactNode }) {
 
 export function ConsultationProvider({ children }: { children: ReactNode }) {
   const [isOpen, setOpen] = useState(false)
+  const [problems, setProblems] = useState<string[]>([])
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle")
 
   const onOpenChange = (v: boolean) => {
@@ -50,7 +55,8 @@ export function ConsultationProvider({ children }: { children: ReactNode }) {
 
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    const data = Object.fromEntries(new FormData(e.currentTarget).entries())
+    const data: Record<string, FormDataEntryValue> = Object.fromEntries(new FormData(e.currentTarget).entries())
+    if (problems.length) data.problems = problems.join("; ")
     setStatus("sending")
     try {
       if (ENDPOINT) {
@@ -70,7 +76,7 @@ export function ConsultationProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <Ctx.Provider value={{ open: () => setOpen(true) }}>
+    <Ctx.Provider value={{ open: () => setOpen(true), problems, setProblems }}>
       {children}
       <Dialog open={isOpen} onOpenChange={onOpenChange}>
         <DialogContent>

@@ -1,13 +1,15 @@
 import { CalendarCheck, Phone, ShieldCheck } from "lucide-react"
 
+import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { useConsultation } from "@/components/consultation"
-import { doctor, stats } from "@/data/content"
+import { doctor, expert } from "@/data/content"
 
 export function Header() {
   const { open } = useConsultation()
   const links = [
-    ["Xizmatlar", "#xizmatlar"],
+    ["Kim uchun", "#kim-uchun"],
+    ["Mutaxassis", "#mutaxassis"],
     ["All-on-4/6", "#all-on"],
     ["Narxlar", "#narxlar"],
     ["Sharhlar", "#sharhlar"],
@@ -57,13 +59,12 @@ export function Hero() {
         </div>
 
         <div className="relative mx-auto w-full max-w-sm md:max-w-none">
-          <div className="absolute inset-0 -m-4 rounded-full border border-dashed border-primary/30" />
-          <div className="relative aspect-square overflow-hidden rounded-full border-[6px] border-white bg-sky-soft shadow-[0_24px_60px_-20px_hsl(205_90%_52%/0.45)]">
-            <img src="/doctor.jpg" alt={doctor.name} className="h-full w-full scale-[1.12] object-cover" />
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-border bg-gradient-to-b from-sky-soft to-white shadow-[0_24px_60px_-24px_hsl(205_90%_52%/0.45)]">
+            <img src="/doctor.webp" alt={doctor.name} className="absolute bottom-0 left-1/2 h-[98%] max-w-none -translate-x-1/2" />
           </div>
-          <div className="absolute -bottom-2 left-0 rounded-2xl border border-border bg-background px-5 py-3 shadow-lg sm:-left-4">
-            <p className="font-display text-xl font-extrabold text-primary">{stats[0].value}</p>
-            <p className="text-xs text-muted-foreground">{stats[0].label}</p>
+          <div className="absolute -bottom-3 left-4 rounded-2xl border border-border bg-background px-5 py-3 shadow-lg sm:-left-4">
+            <p className="font-display text-xl font-extrabold text-primary">{doctor.years}</p>
+            <p className="text-xs text-muted-foreground">yil tajriba</p>
           </div>
         </div>
       </div>
@@ -71,16 +72,30 @@ export function Hero() {
   )
 }
 
-export function Stats() {
+export function Expert() {
   return (
-    <section className="border-y border-border bg-muted/60">
-      <div className="container grid grid-cols-2 gap-y-8 py-10 md:grid-cols-4">
-        {stats.map((s) => (
-          <div key={s.label} className="text-center">
-            <p className="font-display text-3xl font-extrabold text-primary sm:text-4xl">{s.value}</p>
-            <p className="mt-1 text-sm text-muted-foreground">{s.label}</p>
+    <section id="mutaxassis" className="bg-muted/60 py-20 sm:py-28">
+      <div className="container grid items-center gap-12 md:grid-cols-[0.8fr_1.2fr] md:gap-16">
+        <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-[2rem] border border-border bg-gradient-to-b from-sky-soft to-white">
+          <img src="/doctor.webp" alt={doctor.name} className="absolute left-1/2 top-[4%] h-[125%] max-w-none -translate-x-1/2" />
+        </div>
+        <div>
+          <p className="text-sm font-semibold uppercase tracking-widest text-primary">Mutaxassis haqida</p>
+          <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">{doctor.name}</h2>
+          <p className="mt-2 font-semibold text-primary">{expert.eyebrow}</p>
+          <p className="mt-2 text-muted-foreground">{expert.sub}</p>
+          <div className="mt-8 grid grid-cols-2 gap-3">
+            {expert.stats.map((s) => (
+              <div key={s.label} className={cn("rounded-2xl border border-border bg-background p-5", s.wide && "col-span-2")}>
+                <p className="font-display text-3xl font-extrabold tabular-nums sm:text-4xl">
+                  {s.value}
+                  <span className="text-primary">{s.unit}</span>
+                </p>
+                <p className="mt-1 text-sm text-muted-foreground">{s.label}</p>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </section>
   )

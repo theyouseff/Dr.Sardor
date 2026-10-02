@@ -1,7 +1,9 @@
 import { useState } from "react"
 import { Check } from "lucide-react"
 
-import { allOn, services, steps } from "@/data/content"
+import { useConsultation } from "@/components/consultation"
+import { Button } from "@/components/ui/button"
+import { allOn, painPoints, steps } from "@/data/content"
 import { cn } from "@/lib/utils"
 
 export function SectionHead({ eyebrow, title, text }: { eyebrow: string; title: string; text?: string }) {
@@ -14,18 +16,61 @@ export function SectionHead({ eyebrow, title, text }: { eyebrow: string; title: 
   )
 }
 
-export function Services() {
+export function ForWhom() {
+  const { open, problems, setProblems } = useConsultation()
+  const toggle = (t: string) =>
+    setProblems(problems.includes(t) ? problems.filter((x) => x !== t) : [...problems, t])
+  const n = problems.length
   return (
-    <section id="xizmatlar" className="container py-20 sm:py-28">
-      <SectionHead eyebrow="Xizmatlar" title="Sizga mos implant yechimi" />
-      <div className="grid gap-5 md:grid-cols-3">
-        {services.map((s, i) => (
-          <div key={s.title} className="rounded-3xl border border-border p-8 transition hover:border-primary/40 hover:shadow-[0_12px_40px_-16px_hsl(205_90%_52%/0.35)]">
-            <span className="font-display text-sm font-bold text-primary">0{i + 1}</span>
-            <h3 className="mt-6 text-xl font-bold">{s.title}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.text}</p>
-          </div>
-        ))}
+    <section id="kim-uchun" className="container py-20 sm:py-28">
+      <SectionHead
+        eyebrow="Bu kim uchun"
+        title="Bu sizga to'g'ri keladimi?"
+        text="Quyidagilardan o'zingizga tanish bo'lganini belgilang."
+      />
+      <div className="grid gap-3 sm:grid-cols-2">
+        {painPoints.map((p) => {
+          const on = problems.includes(p.title)
+          return (
+            <button
+              key={p.title}
+              type="button"
+              role="checkbox"
+              aria-checked={on}
+              onClick={() => toggle(p.title)}
+              className={cn(
+                "flex items-start gap-4 rounded-2xl border p-5 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                on ? "border-primary bg-primary/5" : "border-border hover:border-primary/40",
+              )}
+            >
+              <span
+                className={cn(
+                  "mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 transition",
+                  on ? "border-primary bg-primary text-primary-foreground" : "border-input",
+                )}
+              >
+                {on && <Check className="h-3.5 w-3.5" strokeWidth={3} />}
+              </span>
+              <span>
+                <span className="block font-display text-lg font-bold leading-snug">{p.title}</span>
+                <span className="mt-1 block text-sm text-muted-foreground">{p.text}</span>
+                <span className={cn("mt-2 block text-xs font-semibold text-primary transition", on ? "opacity-100" : "opacity-0")}>
+                  Ha, menda bu muammo bor
+                </span>
+              </span>
+            </button>
+          )
+        })}
+      </div>
+      <div className="mt-8 flex flex-col items-center gap-4 rounded-3xl bg-muted p-6 text-center sm:flex-row sm:justify-between sm:p-8 sm:text-left">
+        <p className="max-w-xl text-sm sm:text-base">
+          {n > 0
+            ? `Siz ${n} ta muammoni belgiladingiz. Aynan shunday holatlar bilan ishlaymiz, yechimni konsultatsiyada aytamiz.`
+            : "Mos kelganini belgilang. Hech biri mos kelmasa ham, holatingizni konsultatsiyada baholaymiz."}
+        </p>
+        <Button size="lg" onClick={open} variant={n > 0 ? "default" : "outline"} className="shrink-0">
+          Konsultatsiyaga yozilish
+        </Button>
       </div>
     </section>
   )

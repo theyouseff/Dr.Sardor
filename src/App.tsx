@@ -1,6 +1,6 @@
 import { ConsultationProvider } from "@/components/consultation"
-import { Header, Hero, Stats } from "@/components/sections/header-hero"
-import { AllOn, Services, Steps } from "@/components/sections/services-allon"
+import { Expert, Header, Hero } from "@/components/sections/header-hero"
+import { AllOn, ForWhom, Steps } from "@/components/sections/services-allon"
 import { Faq, FinalCta, Footer, Prices, VideoReviews, WrittenReviews } from "@/components/sections/prices-reviews-faq"
 
 export default function App() {
@@ -9,8 +9,8 @@ export default function App() {
       <Header />
       <main>
         <Hero />
-        <Stats />
-        <Services />
+        <ForWhom />
+        <Expert />
         <AllOn />
         <Steps />
         <Prices />
