@@ -74,15 +74,19 @@ export function Hero() {
 
 export function Expert() {
   return (
-    <section id="mutaxassis" className="relative overflow-hidden bg-[#0a1424] py-20 text-white sm:py-28">
-      <div className="pointer-events-none absolute -left-48 top-1/2 h-[560px] w-[560px] -translate-y-1/2 rounded-full bg-primary/25 blur-3xl" />
-      <div className="container relative grid items-center gap-12 md:grid-cols-[0.85fr_1.15fr] md:gap-16">
-        <div className="relative mx-auto w-full max-w-md rounded-[2rem] border border-white/15 bg-white/5 p-2.5 shadow-[0_0_90px_-24px_hsl(205_90%_52%/0.6)]">
-          <div className="aspect-[546/578] overflow-hidden rounded-[1.5rem]">
-            <img src="/expert.jpg" alt={doctor.name} className="h-full w-full object-cover object-[50%_100%]" />
-          </div>
-        </div>
-        <div>
+    <section id="mutaxassis" className="relative overflow-hidden bg-[#0a1424] text-white">
+      {/* Klinika xonasi: chap chetdan boshlanib, o'ngda ko'k fonga singib ketadi */}
+      <div className="relative md:absolute md:inset-y-0 md:left-0 md:w-1/2 md:max-w-[760px]">
+        <img
+          src="/expert.jpg"
+          alt={doctor.name}
+          className="block aspect-[546/578] w-full object-cover object-[50%_20%] md:aspect-auto md:h-full"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,#0a1424_0%,transparent_14%,transparent_70%,#0a1424_100%)] md:bg-[linear-gradient(to_right,transparent_48%,#0a1424_100%),linear-gradient(to_bottom,#0a1424_0%,transparent_14%,transparent_86%,#0a1424_100%)]" />
+      </div>
+      <div className="container relative grid gap-10 pb-16 md:grid-cols-[0.85fr_1.15fr] md:gap-16 md:py-24">
+        <div className="hidden md:block" aria-hidden />
+        <div className="-mt-14 md:mt-0">
           <p className="text-sm font-semibold uppercase tracking-widest text-[#4da3ee]">Mutaxassis haqida</p>
           <h2 className="mt-3 text-3xl font-extrabold sm:text-5xl">{doctor.name}</h2>
           <p className="mt-2 text-lg font-semibold text-[#4da3ee]">{expert.eyebrow}</p>
